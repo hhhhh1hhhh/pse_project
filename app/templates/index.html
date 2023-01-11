@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link href="https://unpkg.com/mvp.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <h1>Python is So Easy</h1>
+    </header>
+    <center>
+      <form id="user_form" action="/user">
+        <input
+          type="user"
+          placeholder="이름"
+          id="user_input"
+          name="q"
+        />
+        <input
+        type="user"
+        placeholder="학번"
+        id="user_input"
+        name="n"
+      />
+        <button type="submit">등록</button>
+        <center><h3 style="color: gray">정보를 입력해주세요</h3></center>
+
+      </form>
+    </center>
+  </header>
+  <main>
+    <center>
+      <form id="bring_form" action="/bring">
+        <button type="submit">데이터 가져오기</button>
+        {{ simples }}
+  </main>
+  </body>
+</html>
