@@ -9,21 +9,11 @@
     </header>
     <center>
       <form id="user_form" action="/user">
-        <input
-          type="user"
-          placeholder="이름"
-          id="user_input"
-          name="q"
-        />
-        <input
-        type="user"
-        placeholder="학번"
-        id="user_input"
-        name="n"
-      />
-        <button type="submit">등록</button>
-        <center><h3 style="color: gray">정보를 입력해주세요</h3></center>
-
+        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FHwUO4%2FbtqEzh3SvlA%2FiOjiCqLrlliRSTzbQ9A4K1%2Fimg.png" width="300" height="300" style="float: left">
+        <br> 
+        <textarea 
+        style="resize:none;" name="q" rows="20" cols="60" placeholder="코드를 입력해주세요"></textarea><br>
+        <input type="submit">
       </form>
     </center>
   </header>
@@ -31,7 +21,7 @@
     <center>
       <form id="bring_form" action="/bring">
         <button type="submit">데이터 가져오기</button>
-        {{ simples }}
+        <p> <br> {{ simples }} </p>
   </main>
   </body>
 </html>

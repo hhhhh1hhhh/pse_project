@@ -41,15 +41,14 @@ async def root(request: Request):
 
 
 @app.get("/user", response_class=HTMLResponse)
-async def search(request: Request, q: str, n: int):
+async def search(request: Request, q: str):
     keyword = request.query_params.get("q")  # 쿼리에서 검색어 추출
-    number = request.query_params.get("n")
+    # number = request.query_params.get("n")
     # keyword = q  # 쿼리에서 검색어 추출
     # number = n
 
     simple_model = SimpleModel(
         keyword=keyword,
-        number=number,
     )
 
     print(simple_model)
@@ -65,19 +64,19 @@ async def search(request: Request, q: str, n: int):
 async def bring(request: Request):
     data = mongodb.engine.find(SimpleModel)
     print(data)
-    # keyword = request.query_params.get("q")  # 쿼리에서 검색어 추출
-    # number = request.query_params.get("n")
-
-    #  - 해당 검색어에 대해 수집된 데이터가 이미 DB에 존재한다면 해당 데이터를 사용자에게 보여준다. return
-    # if await mongodb.engine.find_one(BookModel, BookModel.keyword == keyword):
-    #     books = await mongodb.engine.find(BookModel, BookModel.keyword == keyword)
-    #     context = {"request": request, "keyword": keyword, "books": books}
-    #     return templates.TemplateResponse("index.html", context=context)
-    #     return templates.TemplateResponse("./index.html", {"request": request, "title": "콜렉터 북북이", "books": books},)
 
     simples = await mongodb.engine.find(SimpleModel)
     context = {"request": request, "simples": simples}
+
+    # 값 정제...
+    search = "SimpleModel(id=ObjectId"
+    for i, word in enumerate(simples):
+        if search in word:
+            print(">> modify: " + word)
+            simples[i] = word.strip(search)
+
     print(simples)
+
     return templates.TemplateResponse("index.html", context=context)
     # return templates.TemplateResponse("index.html", context=context)
 

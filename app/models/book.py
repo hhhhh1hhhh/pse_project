@@ -28,7 +28,6 @@ class BookModel(Model):
 
 class SimpleModel(Model):
     keyword: str
-    number: int
 
     class Config:
         collection = "simples"
