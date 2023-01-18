@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link href="https://unpkg.com/mvp.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <h1>Python is So Easy</h1>
+    </header>
+    <center>
+      <form id="user_form" action="/user">
+        <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FHwUO4%2FbtqEzh3SvlA%2FiOjiCqLrlliRSTzbQ9A4K1%2Fimg.png" width="300" height="300" style="float: left">
+        <br> 
+        <textarea 
+        style="resize:none;" name="q" rows="20" cols="60" placeholder="코드를 입력해주세요"></textarea><br>
+        <input type="submit">
+      </form>
+    </center>
+  </header>
+  <main>
+    <center>
+      <form id="bring_form" action="/bring">
+        <button type="submit">데이터 가져오기</button>
+        <p> <br> {{ simples }} </p>
+  </main>
+  </body>
+</html>
